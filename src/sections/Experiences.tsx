@@ -41,7 +41,7 @@ export function Experiences(): React.ReactElement {
   return (
     <section id="experiences" data-reveal>
       <h2>Experiences</h2>
-      <div className="exp-grid" data-parallax data-speed="0.1" data-sy="0.25" data-reveal className="stagger">
+      <div className="exp-grid stagger" data-parallax data-speed="0.1" data-sy="0.25" data-reveal>
         {experiences.map((e, idx) => (
           <article key={e.company} className="exp-card glow glow-soft reveal-item" style={{ ['--i' as any]: idx }}>
             <div className="exp-banner" style={{ backgroundImage: e.banner ? `url(${e.banner})` : undefined }} />
