@@ -18,7 +18,7 @@ export function App(): React.ReactElement {
           ? document.querySelector('.hero')
           : document.getElementById(section)
         
-        if (element) {
+        if (element && 'offsetTop' in element && 'offsetHeight' in element) {
           const { offsetTop, offsetHeight } = element as HTMLElement
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(section)

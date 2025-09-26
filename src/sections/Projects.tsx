@@ -57,7 +57,7 @@ export function Projects(): React.ReactElement {
   return (
     <section id="projects" data-reveal>
       <h2>Projects</h2>
-      <div className="grid stagger" data-parallax data-speed="0.08" data-sy="0.3" data-reveal>
+      <div className="grid stagger" data-parallax data-speed="0.08" data-sy="0.3">
         {projects.map((p, idx) => (
           <article key={p.title} className="card glow glow-soft reveal-item" style={{ ['--i' as any]: idx }}>
             <div className="card-body" style={{ display: 'flex', gap: '16px' }}>
