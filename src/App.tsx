@@ -19,7 +19,7 @@ export function App(): React.ReactElement {
           : document.getElementById(section)
         
         if (element) {
-          const { offsetTop, offsetHeight } = element
+          const { offsetTop, offsetHeight } = element as HTMLElement
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(section)
             break

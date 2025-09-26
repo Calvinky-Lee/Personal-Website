@@ -188,8 +188,8 @@ export function SpaceBackground(): React.ReactElement {
       // Spawn top-left stars when reaching certifications/projects sections
       const certificationsSection = document.querySelector('#certifications')
       const projectsSection = document.querySelector('#projects')
-      const isNearCertifications = certificationsSection && scrollY > certificationsSection.offsetTop - 200
-      const isNearProjects = projectsSection && scrollY > projectsSection.offsetTop - 200
+      const isNearCertifications = certificationsSection && scrollY > (certificationsSection as HTMLElement).offsetTop - 200
+      const isNearProjects = projectsSection && scrollY > (projectsSection as HTMLElement).offsetTop - 200
       
       if ((isNearCertifications || isNearProjects) && Math.random() > 0.95) {
         const topLeftStar = createParallaxStar()
