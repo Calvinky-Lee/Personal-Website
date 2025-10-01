@@ -38,11 +38,17 @@ export function App(): React.ReactElement {
     <>
       <header className="vc-header">
         <div className="vc-container">
-          <a href="#" className="vc-logo">Calvin Lee</a>
+          <div className="vc-logo" style={{ display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid white', borderRadius: '8px', padding: '8px 12px' }}>
+            <a href="https://cs.uwatering.com/#calvin-lee.ca?nav=prev" style={{ textDecoration: 'none', color: 'white', position: 'relative', top: '-2px' }}>←</a>
+            <a href="https://cs.uwatering.com/#calvin-lee.ca" target="_blank" rel="noreferrer" style={{ marginLeft: '4px', position: 'relative', top: '2px' }}>
+              <img src="https://cs.uwatering.com/icon.white.svg" alt="CS Webring" style={{ width: '24px', height: 'auto', opacity: 0.8 }}/>
+            </a>
+            <a href="https://cs.uwatering.com/#calvin-lee.ca?nav=next" style={{ textDecoration: 'none', color: 'white', position: 'relative', top: '-2px' }}>→</a>
+          </div>
           <nav className="vc-nav">
-            <a href="#" className={`vc-link ${activeSection === 'home' ? 'is-active' : ''}`}>Home</a>
-            <a href="#experiences" className={`vc-link ${activeSection === 'experiences' ? 'is-active' : ''}`}>Experience</a>
-            <a href="#projects" className={`vc-link ${activeSection === 'projects' ? 'is-active' : ''}`}>Projects</a>
+            <a href="#" className={`vc-link ${activeSection === 'home' ? 'is-active' : ''}`} onClick={() => setActiveSection('home')}>Home</a>
+            <a href="#experiences" className={`vc-link ${activeSection === 'experiences' ? 'is-active' : ''}`} onClick={() => setActiveSection('experiences')}>Experience</a>
+            <a href="#projects" className={`vc-link ${activeSection === 'projects' ? 'is-active' : ''}`} onClick={() => setActiveSection('projects')}>Projects</a>
           </nav>
           <div className="vc-right">
             <button 

@@ -157,11 +157,28 @@ export function SpaceBackground(): React.ReactElement {
           s.x = 0; s.y = Math.random() * height; s.z = Math.random() * 0.9 + 0.1
         }
         
-        // Tiny white star dots
+        // Geometric shapes in teal
         const brightness = 0.3 + s.z * 0.7
-        ctx.fillStyle = `rgba(255, 255, 255, ${brightness})`
-        const size = s.z * 0.5 + 0.5
-        ctx.fillRect(s.x, s.y, size, size)
+        const size = s.z * 1.5 + 1
+        const alpha = brightness * 0.8
+        
+        ctx.fillStyle = `rgba(20, 184, 166, ${alpha})`
+        
+        // Alternate between circles and triangles
+        if (s.x % 2 === 0) {
+          // Draw circle
+          ctx.beginPath()
+          ctx.arc(s.x, s.y, size, 0, Math.PI * 2)
+          ctx.fill()
+        } else {
+          // Draw triangle
+          ctx.beginPath()
+          ctx.moveTo(s.x, s.y - size)
+          ctx.lineTo(s.x - size, s.y + size)
+          ctx.lineTo(s.x + size, s.y + size)
+          ctx.closePath()
+          ctx.fill()
+        }
       }
       
       // Spawn new dynamic space elements when scrolling (very rare)
@@ -407,8 +424,8 @@ export function SpaceBackground(): React.ReactElement {
           return false
         }
         
-        // Draw falling star trail
-        ctx.strokeStyle = `rgba(255, 255, 255, ${star.brightness * 0.3})`
+        // Draw falling star trail in teal
+        ctx.strokeStyle = `rgba(20, 184, 166, ${star.brightness * 0.3})`
         ctx.lineWidth = 1
         ctx.beginPath()
         for (let i = 0; i < star.trail.length - 1; i++) {
@@ -423,17 +440,23 @@ export function SpaceBackground(): React.ReactElement {
         ctx.stroke()
         ctx.globalAlpha = 1
         
-        // Draw falling star core
+        // Draw falling star core as geometric shape
         const finalBrightness = star.brightness * star.opacity
-        ctx.fillStyle = `rgba(255, 255, 255, ${finalBrightness})`
+        ctx.fillStyle = `rgba(20, 184, 166, ${finalBrightness})`
+        
+        // Draw diamond shape instead of circle
         ctx.beginPath()
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2)
+        ctx.moveTo(star.x, star.y - star.size)
+        ctx.lineTo(star.x + star.size, star.y)
+        ctx.lineTo(star.x, star.y + star.size)
+        ctx.lineTo(star.x - star.size, star.y)
+        ctx.closePath()
         ctx.fill()
         
         // Add sparkle effect
-        ctx.fillStyle = `rgba(255, 255, 255, ${finalBrightness * 0.8})`
+        ctx.fillStyle = `rgba(20, 184, 166, ${finalBrightness * 0.8})`
         ctx.beginPath()
-        ctx.arc(star.x, star.y, star.size * 0.5, 0, Math.PI * 2)
+        ctx.arc(star.x, star.y, star.size * 0.3, 0, Math.PI * 2)
         ctx.fill()
         
         return true

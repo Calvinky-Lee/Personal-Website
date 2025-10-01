@@ -219,6 +219,12 @@ section p { margin: 0 0 12px; color: var(--muted); }
   gap: 80px;
 }
 
+.projects-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
