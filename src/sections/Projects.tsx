@@ -10,7 +10,7 @@ type Project = {
 
 const projects: Project[] = [
   { title: 'UW-2DO', description: 'An All in one tasks organiser and chatbot availible tailored for UWaterloo students', link: 'https://github.com/zach3141592/UW-2Do', tags: ['JavaScript','React','HTML','CSS','Node'] },
-  { title: 'Personal Website!', description: 'my own personal website', link: 'https://calvin-lee.ca', tags: ['React','JavaScript','HTML','CSS'], image: '/images/personalwebsite.png' },
+  { title: 'Personal Website!', description: 'my own personal website', link: 'https://calvin-lee.ca', tags: ['React','Vite','JavaScript','HTML','CSS'], image: '/images/personalwebsite.png' },
 ]
 
 export function Projects(): React.ReactElement {
